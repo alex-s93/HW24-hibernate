@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+    <class name="com.alevel.homework24.model.Product" table="products">
+        <id name="id" column="product_id">
+            <generator class="identity"/>
+        </id>
+        <property name="name" column="name"/>
+        <property name="price" column="price"/>
+        <many-to-one name="category" column="category_id"
+                     class="com.alevel.homework24.model.Category"
+                     cascade="persist"
+                     lazy="false"
+                     fetch="select"
+        />
+    </class>
+</hibernate-mapping>
